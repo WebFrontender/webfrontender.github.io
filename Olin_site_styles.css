@@ -1,0 +1,530 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    box-sizing: border-box;
+     font-family: "Arial", sans-serif;
+     width: 100%;
+     overflow-x: hidden;
+  }
+
+  .header {
+    position: sticky;
+    -webkit-position: -webkit-sticky;
+    top: 0;
+    z-index: 2;
+    height: 25vmin;
+  }
+
+ .header1 {
+    display: flex;
+    height: 15vmin;
+    background-image: url("Olin_site/фон со свечами.jpg"); 
+    background-size: cover; 
+    background-position: center;
+    transition: 1s;
+}
+
+ .header1:hover {
+    background-position: bottom 0 right 0;
+    transition: 1s;
+  }
+
+ .logo {
+   flex-basis: 10vw;
+}
+
+.logo img {
+   position: absolute;
+   height: 25vmin;
+   width: 25vmin;
+   top: -3vmin;
+   left: -2vmin;
+}
+
+.logo img:hover {
+   transform: rotate(360deg);
+   transition: 0.5s;
+}
+
+.study_name {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   flex-basis: 70vw;
+   flex-grow: 1;
+}
+
+.study_name1 {
+   flex-basis: 100%;
+   background-image: url("Olin_site/надпись Студия воской депиляции/Study.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: auto 300%;
+}
+
+.study_name2 {
+   background-image: url("Olin_site/надпись Студия воской депиляции/Vosk.svg");
+}
+
+.study_name3 {
+  background-image: url("Olin_site/надпись Студия воской депиляции/depilation.svg");
+}
+
+.study_name2, .study_name3{
+   flex-basis: 34vw;
+   min-width: 50vmin;
+   flex-grow: 0;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: auto 200%; 
+   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.contacts, .adress, .note {
+   flex-basis: 20vw;
+   text-align: center;
+   align-self: center;
+   min-height: 8vmin;
+   max-height: 14vmin;
+   border: 1px solid #D4009F;
+   border-radius: 10px;
+   border-top: 1px solid rgba(255, 255, 255, 0.5);
+   border-left: 1px solid rgba(255, 255, 255, 0.5);
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(5px);
+   overflow: hidden;
+   font-size: 1.8vmin;
+}
+
+.header2 {
+     background: linear-gradient(to left, #D4009F, #FF9D73);
+     display: flex;
+     height: 12vmin;
+  }
+
+.mobile-menu{
+  margin: auto;
+   width: 30px;
+   margin-left: 5px;
+   z-index: 5;
+}
+
+.mobile-menu__checkbox {
+   display: none;
+}
+
+.mobile-menu__btn {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 30px;
+   cursor: pointer;
+   transition: .4s;
+}
+
+/* Средняя полоска*/
+.mobile-menu__icon {
+   display: block;
+   position: relative;
+   background: white; 
+   width: 100%;
+   height: 4px;
+   transition: .4s;
+}
+
+/* Средняя полоска становится невидна*/
+.mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon {
+   background: transparent; 
+}
+
+/* Контейнет со списком-меню скрытый для пользователя*/
+.mobile-menu__container {
+   position: absolute;
+   z-index: 9;
+   left: -30vw;
+   top: 27vmin;
+   height: 100vh;
+   width: 25vw;
+   font-size: 3vmin;
+}
+
+/* Контейнет со списком-меню видимый пользователю*/
+.mobile-menu__checkbox:checked ~ .mobile-menu__container {
+   transform: translateX(30vw);
+   transition: 0.5s;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu__list {
+   list-style: none;
+   padding-left:0;
+   margin-top: 30px;
+ 
+}
+
+.mobile-menu__item {
+   font-size: 5vmin;
+   padding: 5px; 
+}
+
+.mobile-menu__item:hover {
+background: rgba(255, 255, 255, 0.5);
+}
+
+.mobile-menu__link {
+   text-decoration: none;
+   color: #fff;
+}
+
+.mobile-menu__link:hover {
+   color: black;
+}
+
+/* Стиль для верхней и нижней полоски бургера*/
+.mobile-menu__icon::after, .mobile-menu__icon::before {
+   content: "";
+   display: block;
+   position: absolute;
+   background: white;
+   width: 100%;
+   height: 4px;
+   transition: .4s;
+} 
+
+/*  для верхней поднять на 8*/
+.mobile-menu__icon::before {
+   top: -8px; 
+}
+
+/* для нижней опустить на 8*/
+.mobile-menu__icon::after {
+   top: 8px; 
+}
+
+/* При нажатии сливаются верхняя и нижняя в одну*/
+.mobile-menu__checkbox:checked ~ 
+.mobile-menu__btn .mobile-menu__icon::before, 
+.mobile-menu__checkbox:checked ~ 
+.mobile-menu__btn .mobile-menu__icon::after {
+   top: 0; 
+}
+
+  /* Поворачиваются в крест*/
+.mobile-menu__checkbox:checked ~ 
+.mobile-menu__btn .mobile-menu__icon::after {
+   transform: rotate(-45deg);
+   -webkit-transform: rotate(-45deg); 
+
+}
+
+/* Поворачиваются в крест*/
+.mobile-menu__checkbox:checked ~ 
+.mobile-menu__btn .mobile-menu__icon::before {
+   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg);
+}
+
+.slogan {
+   flex-grow: 1;
+   text-align: center;
+   color: white;
+   font-size: 3vmin;
+   padding: 0.5vmin;
+
+}
+
+.note {
+ 
+}
+
+.main {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: auto;
+   background-image: url("Olin_site/ноги в розах.jpg");
+   background-size: contain;
+   background-attachment: fixed;
+   background-repeat: repeat-y;
+}
+
+.main >*{
+  width: 85vmin;
+  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2vmin;
+}
+
+h2 {
+  background: rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.3);
+    color: #D4009F; 
+    padding: 10px;
+    height: 9vmin;
+    font-size: 4.5vmin;
+    text-align: center;
+}
+
+h2:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+p {
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    padding: 20px;
+    font-size: 2vmin;  
+}
+
+/* Слайдер */
+.slider {
+   position: relative;
+   height: 50vmin;
+}
+
+/* Картинка масштабируется по отношению к родительскому элементу */
+.slider .item img {
+   object-fit: cover;
+   width: 100%;
+   height: 50vmin;
+}
+
+/* Кнопки вперед и назад */
+.slider .previous, .slider .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 3vmin;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Анимация слайдов */
+.slider .item {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.5
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.price{
+    display: flex;
+    min-height: 50vmin;
+  }
+
+.comment-table{
+   display: flex;
+   align-items: center;
+   justify-content: start;
+   color: white;
+   padding: 5vmin;
+   width: 35vmin;
+   background-color: rgba(0, 0, 0, 0.3);
+   font-size: 2vmin;
+}
+
+.comment-table:hover {
+   background: linear-gradient(to top, #FF9D73, #D4009F);
+   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+
+ table{
+   border: 1px solid #D4009F;
+   border-collapse: collapse;
+   background-image: url("Olin_site/воск сердце.png");
+   background-size: cover;
+   background-position: center;
+   min-width: 50vmin;
+   min-height: 50vmin;
+   font-size: 3vmin;
+   font-style: italic;
+   font-weight: bolder;
+}
+
+th {
+ 
+   background: linear-gradient(to top, #FF9D73, #D4009F);
+}
+
+td {
+text-align: center;
+
+}
+
+.map {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 15vh;
+  }
+
+.map img {
+width: 100%;
+  }
+
+.map a {
+text-decoration: none;
+color: white;
+font-size: 3vmin;
+  }
+
+  .footer {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+   bottom: 0;
+   background: linear-gradient(to right, #D4009F, #FF9D73);
+    height: 12vmin;
+  }
+
+.avatar {
+    flex-basis: 15vw;
+    flex-grow: 0;
+  }
+
+.avatar img {
+  max-height: 12vmin; 
+  object-fit: scale-down;
+  border-radius: 50%;
+  transition: 0.5s;
+  }
+
+.card {
+  display: flex;
+  justify-content: start;
+  position: absolute;
+  bottom: 0;
+  height: 18vmin;
+  width: 15vw; 
+  font-size: 3vmin;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+  border-top-right-radius: 50%;
+  color: white;
+  }
+
+  span {
+     color: #D4009F; 
+  }
+
+ .avatar:hover .card {
+  opacity: 1;
+  background-color:rgba(255, 255, 255, 0.5); 
+  transition: 0.5s;
+  }  
+
+.avatar:hover img {
+ transform: translateY(-12vmin) ;
+  transition: 0.5s;
+  }
+
+.call {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.call img{
+height: 5vmin;
+}
+
+.call img:hover{
+height: 7vmin;
+}
+
+#myBtn {
+  background-color:rgba(255, 255, 255, 0.2); 
+   clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+  padding: 2px 6px;
+  cursor: pointer;
+  min-width: 40vmin;
+  height: 10vmin;
+  font-size: 2vmin;
+  border: none;
+}
+
+#myBtn:hover {
+  background-color:rgba(255, 255, 255, 0.5); 
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: 0 auto;
+    top: calc(50% - 23vmin);
+    left: calc(50% - 40vmin);
+    background-color: rgba(100,0,100,0.7);
+    width: 80vmin;
+    height: 50vmin;
+    text-align: center;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #D4009F;
+    color: white;
+    font-size: 3vmin;
+}
+
+.modal-body, .modal-body a {
+  padding: 2px 16px;
+  font-size: 4vmin;
+  text-decoration: none;
+  color: #FF9D73;
+}
+
+@media screen and (min-width: 1450px) and (orientation: landscape) { 
+ .main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+    
