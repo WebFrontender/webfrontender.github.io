@@ -529,10 +529,11 @@ color: white;
    text-shadow: 1px 1px 1px black;
 }
 
-@media screen and (min-width: 1450px) and (orientation: landscape) { 
+@media screen and (min-width: 768px) and (orientation: landscape) { 
  .main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
   }
-    
+ 
