@@ -1,3 +1,9 @@
+var isDesktop = (function() {
+  return !('ontouchstart' in window) || !('onmsgesturechange' in window);
+})();
+window.isDesktop = isDesktop;
+if( isDesktop ){
+  
 var VanillaTilt = (function () {
 'use strict';
 
@@ -539,3 +545,5 @@ VanillaTilt.init(document.querySelectorAll(".contacts"), {
     glare: true,
     "max-glare":1,
   });
+  
+}
