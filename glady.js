@@ -106,7 +106,7 @@ class VanillaTilt {
       window.addEventListener("resize", this.onWindowResizeBind);
     }
 
-    if (this.gyroscope) {
+    if (!this.gyroscope) {
       window.addEventListener("deviceorientation", this.onDeviceOrientationBind);
     }
   }
